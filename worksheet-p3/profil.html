@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Favoritku</title>
+</head>
+<body>
+
+  <!-- TODO C.1: buat <header> di sini.
+       Isinya: satu <h1> berisi judul halaman Anda.
+       Di dalamnya juga ada <nav> berisi 3 tautan ke bagian halaman. -->
+  <header>
+    <h1>Film Favoritku</h1>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#data-film">Data Film</a></li>
+        <li><a href="#rekomendasi">Rekomendasi</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- TODO C.2: buat <main> di sini sebagai pembungkus semua bagian isi.
+       Di dalamnya ada 2 <section>, masing-masing punya <h2> sendiri. -->
+  <main>
+    <section id="data-film">
+      <h2>Daftar Film Favorit</h2>
+
+      <figure>
+        <img
+          src="https://cdn.pixabay.com/photo/2016/01/22/08/20/film-1155439_640.jpg"
+          alt="Film dengan kamera dan suasana sinema yang menarik"
+          width="640"
+          height="360"
+          loading="lazy">
+        <figcaption>Film favorit yang paling sering saya tonton.</figcaption>
+      </figure>
+
+      <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
+           Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
+      <table>
+        <caption>Film yang paling sering saya tonton</caption>
+        <thead>
+          <tr>
+            <th scope="col">Judul</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Tahun</th>
+            <th scope="col">Alasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Spirited Away</th>
+            <td>Fantasy</td>
+            <td>2001</td>
+            <td>Visualnya unik dan ceritanya penuh imajinasi.</td>
+          </tr>
+          <tr>
+            <th scope="row">The Dark Knight</th>
+            <td>Action</td>
+            <td>2008</td>
+            <td>Karakter Batman sangat kuat dan emosional.</td>
+          </tr>
+          <tr>
+            <th scope="row">La La Land</th>
+            <td>Musikal</td>
+            <td>2016</td>
+            <td>Lagunya indah dan romantis banget.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rekomendasi">
+      <h2>Formulir Rekomendasi Film</h2>
+
+      <!-- TODO E.1: di dalam section kedua, buat form Anda.
+           Wajib ada: minimal 3 kolom, setiap kolom punya <label for> yang
+           cocok dengan id input-nya, dan satu atribut validasi. -->
+      <form action="#" method="post">
+        <p>
+          <label for="nama">Nama Lengkap</label><br>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+        </p>
+
+        <p>
+          <label for="film">Judul Film</label><br>
+          <input type="text" id="film" name="film" placeholder="Contoh: Interstellar" required>
+        </p>
+
+        <p>
+          <label for="genre">Genre</label><br>
+          <input type="text" id="genre" name="genre" placeholder="Contoh: Fantasy" required>
+        </p>
+
+        <button type="submit">Kirim Rekomendasi</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- TODO C.3: buat <footer> di sini.
+       Isinya: nama Anda, NIM Anda, dan tahun. -->
+  <footer id="kontak">
+    <p>Nama: Annas Pascal Handoko NIM: 25523263 Tahun: 2026</p>
+  </footer>
+
+</body>
+</html>
