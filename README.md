@@ -40,8 +40,20 @@ Tema gelap mengganti token semantik menjadi latar #16121A, teks #EDE6F0, permuka
 
 Kriteria selesai saya: mengubah nilai --color-primary mengubah warna tombol dan tautan yang memakai token tersebut. Judul tetap mengikuti aturan tipografi, sedangkan garis fokus memakai --color-focus.
 
+## Pertemuan 5 — Layout modern: flexbox dan grid
+
+- Berkas yang digunakan: `profil.html`, `tokens.css`, `base.css`, `layout.css`, `komponen.css`, dan `tema.css` di folder `worksheet-p5`, hasil salinan dari Pertemuan 4 dengan tata letak yang diganti.
+- Kerangka halaman dibungkus satu wadah `.page` memakai grid tiga baris (`auto 1fr auto`) untuk header, konten, dan footer, dengan tinggi minimum `100dvh` supaya kaki halaman tetap menempel di bawah.
+- Navbar (logo, judul, menu) memakai flexbox satu baris dengan jarak diatur lewat `gap`, tanpa margin tempelan.
+- Area isi (`.isi`) memakai grid dua kolom lewat `grid-template-areas`: sidebar formulir (`.sisi`) tetap 16rem, konten daftar film (`.utama`) menyerap sisa lebar dengan `1fr`.
+- Galeri kartu film memakai grid adaptif `repeat(auto-fit, minmax(16rem, 1fr))`, sehingga jumlah kolom berubah sendiri mengikuti lebar layar tanpa media query. Isi setiap kartu (judul, alasan, baris genre-tahun) disusun dengan flexbox.
+- Satu media query dipakai khusus untuk menumpuk `.isi` menjadi satu kolom pada layar sempit (maksimum 40rem), untuk mencegah kartu galeri meluber keluar kolom konten.
+- Diuji pada lebar 360 px dan 1 280 px: tidak ada elemen yang meluber, jumlah kolom galeri berubah otomatis, dan tombol pengalih tema gelap dari Pertemuan 4 tetap berfungsi.
+
+Kriteria selesai saya: kerangka halaman memakai grid untuk baris dan kolom utama, komponen di dalamnya memakai flexbox, jarak antar elemen memakai gap tanpa margin atau float, galeri berubah jumlah kolom tanpa media query, dan tidak ada elemen yang meluber pada lebar 360 px maupun 1 280 px.
+
 ## Catatan penggunaan AI
 
-AI digunakan untuk membantu mengecek struktur HTML dan CSS agar sesuai dengan ketentuan Worksheet PABW Pertemuan 3 dan 4.
+AI digunakan untuk membantu mengecek struktur HTML dan CSS agar sesuai dengan ketentuan Worksheet PABW Pertemuan 3, 4, dan 5.
 
 Saya mengerjakan dan menentukan sendiri topik halaman, isi data film, struktur halaman, serta isi form.
