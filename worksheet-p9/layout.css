@@ -1,0 +1,63 @@
+/* Kerangka halaman: tiga baris grid. Wadah paling luar, hanya ditulis sekali. */
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: var(--space-6);
+  min-height: 100dvh;
+  padding: var(--space-4);
+}
+
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Navbar: flex, satu baris, jarak lewat gap */
+.navbar {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav a:hover { text-decoration: underline; }
+
+/* Isi: grid, jumlah kolom diatur di responsif.css */
+.isi {
+  display: grid;
+  grid-template-areas:
+    "utama"
+    "sisi";
+  gap: var(--space-6);
+}
+
+.sisi,
+.utama {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.sisi  { grid-area: sisi; }
+.utama { grid-area: utama; }
+
+footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+}
