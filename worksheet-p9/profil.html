@@ -68,6 +68,7 @@
   <button type="button" data-kategori="proses">Dalam Proses</button>
 </div>
 <ul id="daftar" class="galeri grid"></ul>
+<p id="kosong" hidden>Tidak ada proyek yang sesuai.</p>
 </section>
 
     <section id="rekomendasi" class="sisi">
@@ -80,11 +81,14 @@
         <p class="form-kolom">
           <label for="nama">Nama Lengkap</label>
           <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+        <small class="pesan-error" id="error-nama"></small>
         </p>
 
         <p class="form-kolom">
           <label for="film">Judul Film</label>
           <input type="text" id="film" name="film" placeholder="Contoh: Interstellar" required>
+          <small class="pesan-error" id="error-film"></small>
+          <small class="pesan-error" id="error-genre"></small>
         </p>
 
         <p class="form-kolom">
