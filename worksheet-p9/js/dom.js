@@ -19,3 +19,26 @@ function render(daftar) {
 }
 
 render(daftarProyek);
+
+function tandaiTombolAktif(tombolAktif) {
+  document.querySelectorAll("#filter button").forEach((tombol) => {
+    tombol.classList.toggle("aktif", tombol === tombolAktif);
+  });
+}
+
+const barisFilter = document.querySelector("#filter");
+
+barisFilter.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button");
+  if (!tombol) return;
+
+  const kategori = tombol.dataset.kategori;
+  tandaiTombolAktif(tombol);
+  const terpilih = daftarProyek.filter((proyek) => {
+  if (kategori === "semua") return true;
+  if (kategori === "selesai") return proyek.selesai;
+  if (kategori === "proses") return !proyek.selesai;
+});
+
+  render(terpilih);
+});
