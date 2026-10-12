@@ -7,7 +7,7 @@ const profil = {
   keahlian: ["HTML", "CSS", "JavaScript"],
 };
 
-const daftarProyek = [
+export const daftarProyek = [
   { judul: "Halaman Profil", tahun: 2026, selesai: true },
   { judul: "Aplikasi Try Out", tahun: 2026, selesai: false },
   { judul: "Formulir Rekomendasi Film", tahun: 2026, selesai: true },
