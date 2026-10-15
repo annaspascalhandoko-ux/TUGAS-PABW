@@ -1,3 +1,4 @@
+import { ambilProyek } from './api.js';
 const profil = {
   nama: "Annas Pascal Handoko",
   nim: "25523263",
