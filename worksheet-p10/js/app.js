@@ -1,4 +1,7 @@
+
 import { ambilProyek } from './api.js';
+import { render, tampilkanGalat, aturMemuat } from './dom.js';
+
 const profil = {
   nama: "Annas Pascal Handoko",
   nim: "25523263",
@@ -7,14 +10,6 @@ const profil = {
   tahun: 2026,
   keahlian: ["HTML", "CSS", "JavaScript"],
 };
-
-export const daftarProyek = [
-  { judul: "Halaman Profil", tahun: 2026, selesai: true },
-  { judul: "Aplikasi Try Out", tahun: 2026, selesai: false },
-  { judul: "Formulir Rekomendasi Film", tahun: 2026, selesai: true },
-];
-
-const jumlahProyek = daftarProyek.length;
 
 const buatPerkenalan = ({ nama, peran }) => `${nama} — ${peran}`;
 const formatKeahlian = (daftar) => daftar.join(" · ");
@@ -29,30 +24,35 @@ if (elemenJudul !== null) {
 }
 
 if (elemenFooter !== null) {
-  elemenFooter.textContent = `Nama: ${profil.nama} NIM: ${profil.nim} Tahun: ${profil.tahun}`;
+  elemenFooter.textContent =
+    `Nama: ${profil.nama} NIM: ${profil.nim} Tahun: ${profil.tahun}`;
 }
 
 const kota = profil.alamat?.kota ?? "-";
-const kalimat = `Nama saya ${profil.nama}, dan saya belajar ${profil.keahlian.length} hal.`;
+const kalimat =
+  `Nama saya ${profil.nama}, dan saya belajar ${profil.keahlian.length} hal.`;
 
 console.log(kalimat);
 console.log(buatPerkenalan(profil));
 console.log(formatKeahlian(profil.keahlian));
-console.log(`Kota: ${kota}, jumlah proyek: ${jumlahProyek}`);
+console.log(`Kota: ${kota}`);
 
 console.table(profil.keahlian);
-console.table(daftarProyek);
 
-const selesai = daftarProyek.filter((proyek) => proyek.selesai);
-console.table(selesai);
+async function muat() {
+  aturMemuat(true);
 
-const tryOut = daftarProyek.find((proyek) => proyek.judul === "Aplikasi Try Out");
-console.log(tryOut);
+  try {
+    const data = await ambilProyek();
+    render(data);
+  } catch (galat) {
+    tampilkanGalat(
+      'Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.'
+    );
+    console.error(galat.message);
+  } finally {
+    aturMemuat(false);
+  }
+}
 
-const daftarJudul = daftarProyek.map((proyek) => proyek.judul);
-console.log(daftarJudul);
-
-const salinanProfil = { ...profil };
-const urut = [...daftarProyek].sort((a, b) => a.judul.localeCompare(b.judul));
-console.table(urut);
-console.table(daftarProyek);
+muat();

@@ -1,7 +1,6 @@
 
-import { daftarProyek } from "./app.js";
-
 const wadah = document.querySelector("#daftar");
+const kosong = document.querySelector("#kosong");
 
 function buatKartu(proyek) {
   const li = document.createElement("li");
@@ -10,26 +9,28 @@ function buatKartu(proyek) {
   return li;
 }
 
-
-const kosong = document.querySelector("#kosong");
-
-function render(daftar) {
-  wadah.textContent = "";
+export function render(daftar) {
+  wadah.textContent = '';
 
   if (daftar.length === 0) {
+    kosong.textContent = 'Belum ada data.';
     kosong.hidden = false;
     return;
   }
 
   kosong.hidden = true;
-
-  daftar.forEach((proyek) => {
-    wadah.append(buatKartu(proyek));
-  });
+  daftar.forEach((proyek) => wadah.append(buatKartu(proyek)));
 }
 
+export function tampilkanGalat(pesan) {
+  kosong.textContent = pesan;
+  kosong.hidden = false;
+}
 
-render(daftarProyek);
+export function aturMemuat(status) {
+  const muat = document.querySelector("#muat");
+  muat.hidden = !status;
+}
 
 function tandaiTombolAktif(tombolAktif) {
   document.querySelectorAll("#filter button").forEach((tombol) => {
@@ -45,13 +46,6 @@ barisFilter.addEventListener("click", (event) => {
 
   const kategori = tombol.dataset.kategori;
   tandaiTombolAktif(tombol);
-  const terpilih = daftarProyek.filter((proyek) => {
-  if (kategori === "semua") return true;
-  if (kategori === "selesai") return proyek.selesai;
-  if (kategori === "proses") return !proyek.selesai;
-});
-
-  render(terpilih);
 });
 
 const form = document.querySelector("#rekomendasi form");
@@ -126,4 +120,3 @@ form.addEventListener("submit", (event) => {
 
   console.log("Formulir valid dan siap diproses.");
 });
-

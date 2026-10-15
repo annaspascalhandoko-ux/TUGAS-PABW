@@ -1,5 +1,5 @@
 
-const ALAMAT = 'data/proyek.json'; // relatif terhadap profil.html
+const ALAMAT = 'https://raw.githubusercontent.com/annaspascalhandoko-ux/TUGAS-PABW/refs/heads/main/worksheet-p10/data/proyek.json';
 
 export async function ambilProyek() {
   try {
